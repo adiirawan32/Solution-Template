@@ -8,3 +8,6 @@ update-database -Context AppIdentityDbContext
 # Migration DbContext
 add-migration InitialCreate -Context ApplicationDbContext -OutputDir Data\Migrations
 update-database -Context ApplicationDbContext 
+
+# Reference
+https://github.com/dotnet-architecture/eShopOnWeb
