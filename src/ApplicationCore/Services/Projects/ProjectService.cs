@@ -1,4 +1,4 @@
-﻿using ApplicationCore.DTOs.Projects.Dto;
+﻿using ApplicationCore.DTOs.Projects;
 using ApplicationCore.Entities;
 using ApplicationCore.Interfaces;
 using AutoMapper;

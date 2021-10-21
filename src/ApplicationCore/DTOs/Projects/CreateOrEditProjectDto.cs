@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApplicationCore.DTOs.Projects.Dto
+namespace ApplicationCore.DTOs.Projects
 {
     public class CreateOrEditProjectDto
     {

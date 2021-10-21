@@ -1,5 +1,5 @@
 ﻿using ApplicationCore.Entities;
-using ApplicationCore.DTOs.Projects.Dto;
+using ApplicationCore.DTOs.Projects;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
