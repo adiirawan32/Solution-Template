@@ -23,6 +23,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using ApplicationCore.Services.Projects;
 using ApplicationCore;
+using Infrastructure.Data.Repositories.Projects;
+using ApplicationCore.Interfaces.Projects;
 
 namespace WebUI
 {
@@ -60,7 +62,8 @@ namespace WebUI
             services.AddSingleton(mapper);
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
-            services.AddScoped<IProjectService, ProjectRepository>();
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
 
             ConfigureCookieSettings(services);
             CreateIdentityIfNotCreated(services);
