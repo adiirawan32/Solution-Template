@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using ApplicationCore.Interfaces.Projects;
-using ApplicationCore.DTOs.Projects.Dto;
 using ApplicationCore.DTOs.Projects;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;

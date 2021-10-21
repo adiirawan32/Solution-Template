@@ -1,4 +1,4 @@
-﻿using ApplicationCore.DTOs.Projects.Dto;
+﻿using ApplicationCore.DTOs.Projects;
 using System;
 using System.Collections.Generic;
 using System.Text;
