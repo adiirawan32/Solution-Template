@@ -14,6 +14,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<ApplicationCore.Document.Blob> Blobs { get; set; }
+        public DbSet<ApplicationCore.Entities.Project> Projects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -1,7 +1,16 @@
+using ApplicationCore;
+using ApplicationCore.Interfaces;
+using ApplicationCore.Interfaces.Projects;
+using ApplicationCore.Services.Projects;
+using AutoMapper;
+using Infrastructure.Data;
+using Infrastructure.Data.Repositories.Projects;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +34,29 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(c =>
+              c.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), 
+                    sqlServerOptionsAction: sqlOption =>
+                    {
+                        sqlOption.EnableRetryOnFailure();
+                    }));
+
+            // Add Identity DbContext
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+
+            // AutoMapper
+            var mapperConfig = new MapperConfiguration(mc => {
+                mc.AddProfile(new CustomDtoMapper());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IProjectService, ProjectService>();
+
             services.AddControllers();
 
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" }));

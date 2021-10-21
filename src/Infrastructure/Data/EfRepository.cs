@@ -20,7 +20,7 @@ namespace Infrastructure.Data
 
         public EfRepository(ApplicationDbContext dbContext)
         {
-            _dbContext = dbContext;
+            this._dbContext = dbContext;
         }
 
         public virtual async Task<T> GetByIdAsync(int id)
@@ -66,6 +66,8 @@ namespace Infrastructure.Data
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
             return SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
-        }
+        }           
+
+       
     }
 }
