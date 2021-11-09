@@ -1,5 +1,5 @@
 ﻿using ApplicationCore.Interfaces.Projects;
-using ApplicationCore.DTOs.Projects.Dto;
+using ApplicationCore.DTOs.Projects;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
