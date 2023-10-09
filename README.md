@@ -1,13 +1,17 @@
-# Solution-Template
-Solution Template Net Core 3.1
+# Solution-Template ASP.NET Core Web API
+Solution Template adalah Clean Architecture yang dikembangkan menggunakan ASP.NET Core 3.1 dan Database SQL Server
 
- # Migration IdentityDbContext
+# Cara Konfigurasi menggunakan SQL Server
+  1. Migration IdentityDbContext
+  ```
 add-migration InitialCreateIdentity -Context AppIdentityDbContext -OutputDir Identity\Migrations
 update-database -Context AppIdentityDbContext 
+  ```
 
-# Migration DbContext
+2. Migration DbContext
+```
 add-migration InitialCreate -Context ApplicationDbContext -OutputDir Data\Migrations
 update-database -Context ApplicationDbContext 
-
-# Reference
+```
+# Referensi
 https://github.com/dotnet-architecture/eShopOnWeb
