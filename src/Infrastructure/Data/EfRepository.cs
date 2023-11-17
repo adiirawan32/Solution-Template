@@ -66,8 +66,32 @@ namespace Infrastructure.Data
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
             return SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
-        }           
+        }
 
-       
+        public T GetById(int id)
+        {
+            return _dbContext.Set<T>().Find(id);
+        }
+        public IQueryable<T> GetAll()
+        {
+            return _dbContext.Set<T>().AsQueryable();
+        }
+        public T Insert(T entity)
+        {
+            _dbContext.Set<T>().Add(entity);
+            _dbContext.SaveChanges();
+
+            return entity;
+        }
+        public void Update(T entity)
+        {
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+        }
+        public void Delete(T entity)
+        {
+            _dbContext.Set<T>().Remove(entity);
+            _dbContext.SaveChanges();
+        }
     }
 }

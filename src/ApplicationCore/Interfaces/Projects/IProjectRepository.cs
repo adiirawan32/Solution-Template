@@ -9,5 +9,7 @@ namespace ApplicationCore.Interfaces.Projects
     public interface IProjectRepository
     {
         Task<List<GetProjectDto>> GetAll();
+
+        Task<PaginatedListResponse<GetAllProjectForViewDto>> GetAllWithPaging(GetAllProjectInput input);
     }
 }
