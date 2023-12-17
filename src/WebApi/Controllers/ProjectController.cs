@@ -38,8 +38,8 @@ namespace WebApi.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllWithPaging(GetAllProjectInput input)
+        [HttpGet("GetAllWithPaging")]
+        public async Task<IActionResult> GetAllWithPaging([FromQuery] GetAllProjectInput input)
         {
             var result = await _projectRepository.GetAllWithPaging(input);
             return Ok(result);
