@@ -1,5 +1,5 @@
 # Solution-Template ASP.NET Core Web API
-Solution Template adalah Clean Architecture yang dikembangkan menggunakan ASP.NET Core 3.1 dan Database SQL Server
+Solution Template adalah N-Tier Architecture yang dikembangkan menggunakan ASP.NET Core 3.1 dan Database SQL Server
 
 # Cara Konfigurasi menggunakan SQL Server
   1. Migration IdentityDbContext
